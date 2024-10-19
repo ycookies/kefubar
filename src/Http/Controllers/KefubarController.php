@@ -10,11 +10,11 @@ class KefubarController extends Controller
 {
     public function index(Content $content)
     {
-        $alert = Alert::make('这是一个提示','提示');
+        $alert = Alert::make('当前版本：v1.0.2','提醒')->info();
         return $content
             ->title('客服专用条')
             ->description('一键配置')
-            ->row($alert->info())
-            ->row(Admin::view('ycookies.kefubar::index'));
+            ->row($alert->render())
+            ->body(Admin::view('ycookies.kefubar::index'));
     }
 }
